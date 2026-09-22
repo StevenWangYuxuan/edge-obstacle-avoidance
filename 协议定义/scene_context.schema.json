@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scene_context.schema.json",
+  "title": "SceneContext",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["frame_id", "obstacles", "free_space", "ego_state"],
+  "properties": {
+    "frame_id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "obstacles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/obstacle"
+      }
+    },
+    "free_space": {
+      "$ref": "#/$defs/free_space"
+    },
+    "ego_state": {
+      "$ref": "#/$defs/ego_state"
+    }
+  },
+  "$defs": {
+    "normalized": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "obstacle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "x",
+        "y",
+        "w",
+        "h",
+        "distance_est",
+        "lane_hint",
+        "confidence"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "x": {
+          "$ref": "#/$defs/normalized"
+        },
+        "y": {
+          "$ref": "#/$defs/normalized"
+        },
+        "w": {
+          "$ref": "#/$defs/normalized"
+        },
+        "h": {
+          "$ref": "#/$defs/normalized"
+        },
+        "distance_est": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "lane_hint": {
+          "type": "string",
+          "enum": ["left", "center", "right", "unknown"]
+        },
+        "confidence": {
+          "$ref": "#/$defs/normalized"
+        }
+      }
+    },
+    "free_space": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["left", "center", "right"],
+      "properties": {
+        "left": {
+          "$ref": "#/$defs/normalized"
+        },
+        "center": {
+          "$ref": "#/$defs/normalized"
+        },
+        "right": {
+          "$ref": "#/$defs/normalized"
+        }
+      }
+    },
+    "ego_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["speed_mps", "speed_level", "heading"],
+      "properties": {
+        "speed_mps": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "speed_level": {
+          "type": "string",
+          "enum": ["stop", "slow", "medium", "fast"]
+        },
+        "heading": {
+          "type": "string",
+          "enum": ["forward", "left", "right"]
+        }
+      }
+    }
+  }
+}

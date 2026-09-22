@@ -1,0 +1,32 @@
+{
+  "frame_id": 12,
+  "image_width": 810,
+  "image_height": 1080,
+  "detections": [
+    {
+      "label": "person",
+      "confidence": 1.0,
+      "bbox": [44, 232, 158, 553]
+    },
+    {
+      "label": "person",
+      "confidence": 0.99,
+      "bbox": [1, 325, 68, 528]
+    },
+    {
+      "label": "person",
+      "confidence": 0.97,
+      "bbox": [180, 252, 268, 510]
+    },
+    {
+      "label": "person",
+      "confidence": 0.97,
+      "bbox": [548, 298, 641, 515]
+    },
+    {
+      "label": "skateboard",
+      "confidence": 0.99,
+      "bbox": [526, 489, 638, 524]
+    }
+  ]
+}

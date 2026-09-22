@@ -1,0 +1,35 @@
+{
+  "frame_id": 12,
+  "obstacles": [
+    {
+      "type": "traffic_cone",
+      "x": 0.48,
+      "y": 0.66,
+      "w": 0.14,
+      "h": 0.22,
+      "distance_est": 1.2,
+      "lane_hint": "center",
+      "confidence": 0.96
+    },
+    {
+      "type": "trash_bin",
+      "x": 0.74,
+      "y": 0.62,
+      "w": 0.11,
+      "h": 0.18,
+      "distance_est": 2.5,
+      "lane_hint": "right",
+      "confidence": 0.87
+    }
+  ],
+  "free_space": {
+    "left": 0.82,
+    "center": 0.18,
+    "right": 0.34
+  },
+  "ego_state": {
+    "speed_mps": 0.9,
+    "speed_level": "slow",
+    "heading": "forward"
+  }
+}
